@@ -35,7 +35,7 @@ namespace Devices
             };
 
             // Output: [[2,1]]
-            optimalUtilization(
+            OptimalUtilization(
             7, //deviceCapacity
             foregroundAppList1,
             backgroundAppList1);
@@ -61,7 +61,7 @@ namespace Devices
             };
 
             // Output: [[2,4], [3,2]]
-            optimalUtilization(
+            OptimalUtilization(
             10, //deviceCapacity
             foregroundAppList2,
             backgroundAppList2);
@@ -69,9 +69,7 @@ namespace Devices
             #endregion
         }
 
-        public static List<List<int>> optimalUtilization(int deviceCapacity,
-                                                List<List<int>> foregroundAppList,
-                                                List<List<int>> backgroundAppList)
+        public static List<List<int>> OptimalUtilization(int deviceCapacity, List<List<int>> foregroundAppList, List<List<int>> backgroundAppList)
         {
             // Foreground Apps
             List<App> foregroundList = new List<App>();
@@ -132,7 +130,7 @@ namespace Devices
 
             // Reverse the list
             result.Reverse();
-            
+
             return result;
         }
     }

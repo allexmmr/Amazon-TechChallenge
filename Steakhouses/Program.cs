@@ -15,15 +15,13 @@ namespace Steakhouses
     {
         public static void Main(string[] args)
         {
-            nearestXsteakHouses(
+            NearestXsteakHouses(
                 3,
                 new int[,] { { 1, -3 }, { 1, 2 }, { 3, 4 } },
                 1);
         }
 
-        public static List<List<int>> nearestXsteakHouses(int totalSteakhouses,
-                                            int[,] allLocations,
-                                               int numSteakhouses)
+        public static List<List<int>> NearestXsteakHouses(int totalSteakhouses, int[,] allLocations, int numSteakhouses)
         {
             List<Steakhouse> steakhouseList = new List<Steakhouse>();
 
@@ -50,14 +48,14 @@ namespace Steakhouses
                 .ToList();
 
             if (nearByPlaces == null)
+            {
                 return null;
+            }
 
-            return nearByPlaces.
-                ConvertAll(q => new List<int> { q.Latitude, q.Longitude });
+            return nearByPlaces.ConvertAll(q => new List<int> { q.Latitude, q.Longitude });
         }
 
-        private static double CalculateDistance(Steakhouse currentLocation,
-                                    Steakhouse targetLocation)
+        private static double CalculateDistance(Steakhouse currentLocation, Steakhouse targetLocation)
         {
             return Math.Pow(targetLocation.Latitude - currentLocation.Latitude, 2) + Math.Pow(targetLocation.Longitude - currentLocation.Longitude, 2);
         }
